@@ -1,0 +1,33 @@
+{
+  "name": "mathjax-aria-label",
+  "main": "./js/aria-label.js",
+  "version": "1.0.0",
+  "description": "MathJax TeX input extension to set aria-label attributes",
+  "keywords": [
+    "MathJax",
+    "TeX",
+    "aria-label",
+    "speech-rule-engine"
+  ],
+  "license": "Apache-2.0",
+  "contributors": [
+    "Peter Krautzberger (https://github.com/pkra)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/krautzource/mathjax-aria-label"
+  },
+  "homepage": "https://github.com/krautzource/mathjax-aria-label/",
+  "bugs": {
+    "url": "https://github.com/krautzource/mathjax-aria-label/issues"
+  },
+  "scripts": {
+    "release": "standard-version",
+    "test": "echo 'No tests yet'"
+  },
+  "devDependencies": {
+    "mathjax-full": "^3.1.2",
+    "standard-version": "^9.0.0",
+    "typescript": "^3.9.7"
+  }
+}
