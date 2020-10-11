@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathJax aria-label</title>
+  </head>
+  <body>
+    <h1>MathJax extension "aria-label"</h1>
+    <p>
+      This extension implements a TeX macro with two arguments:
+      <code>\arialabel{accessible name}{math content}</code>.
+    </p>
+    <p>
+      This macro allows authors to provide a textual description that provides
+      the accessible name for the enclosed content; in particular, it allows
+      authors to override the heuristics in MathJax's accessibility extension or
+      in other words the heuristics in speech-rule-engine.
+    </p>
+    <p>
+      Below are two expressions represented with and without the use of this
+      extension. Enable the Accessibility Explorer to see the difference in
+      result.
+    </p>
+
+    $$\rm\LaTeX$$
+    $$\arialabel{LaTeX}{\rm\LaTeX }$$
+    $$x \times\rlap\Delta\,\Delta $$
+    $$x \times \arialabel{double struck upper
+    Delta}{\rlap\Delta\,\Delta }$$
+
+    <script>
+      MathJax = {
+        options: {
+          // enableExplorer: true // TODO broken?
+        },
+        tex: { packages: { '[+]': ['aria-label'] } },
+        startup: {
+          async ready() {
+            await import('./aria-label.js');
+            MathJax.startup.defaultReady();
+          },
+        },
+      };
+
+      const s = document.createElement('script');
+      s.setAttribute(
+        'src',
+        'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js'
+      );
+      document.body.appendChild(s);
+    </script>
+  </body>
+</html>
