@@ -54,7 +54,7 @@ ArialabelMethods.Arialabel = function (parser, name) {
 new CommandMap('aria-label', {
     'arialabel': ['Arialabel'],
 }, ArialabelMethods);
-export const configuration = Configuration.create('aria-label', {
+const configuration = Configuration.create('aria-label', {
     handler: {
         macro: ['aria-label']
     }

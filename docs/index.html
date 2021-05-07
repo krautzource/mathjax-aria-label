@@ -23,30 +23,35 @@
       result.
     </p>
 
-    $$\rm\LaTeX$$
-    $$\arialabel{LaTeX}{\rm\LaTeX }$$
-    $$x \times\rlap\Delta\,\Delta $$
-    $$x \times \arialabel{double struck upper
+    $$\rm\LaTeX$$ $$\arialabel{LaTeX}{\rm\LaTeX }$$ $$x
+    \times\rlap\Delta\,\Delta $$ $$x \times \arialabel{double struck upper
     Delta}{\rlap\Delta\,\Delta }$$
 
     <script>
       MathJax = {
-        options: {
-          // enableExplorer: true // TODO broken?
+        loader: {
+          load: ["[ariaLabel]/aria-label.js"],
+          paths: { ariaLabel: "." },
         },
-        tex: { packages: { '[+]': ['aria-label'] } },
-        startup: {
-          async ready() {
-            await import('./aria-label.js');
-            MathJax.startup.defaultReady();
+        options: {
+          a11y: {
+            speech: true, // switch on speech output
+            braille: true, // switch on Braille output
+            subtitles: true, // show speech as a subtitle
+          },
+          menuOptions: {
+            settings: {
+              explorer: true,
+            },
           },
         },
+        tex: { packages: { "[+]": ["aria-label"] } },
       };
 
-      const s = document.createElement('script');
+      const s = document.createElement("script");
       s.setAttribute(
-        'src',
-        'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js'
+        "src",
+        "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js"
       );
       document.body.appendChild(s);
     </script>
